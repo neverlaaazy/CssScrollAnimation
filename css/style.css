@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body{
+    height: 100%;
+    min-height: 100%;
+}
+html{
+    font-family: 'Century Gothic';
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex-grow: 1;
+}
+.container{
+    max-width: 1205px;
+    margin: 0 auto;
+    position: relative;
+}
+.conHeader,.conFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+header,footer{
+    background-color: aquamarine;
+    min-height: 50px;
+}
+
+/* -------------------Задание 1--------------------- */
+.block{
+    min-height: 600px;
+}
+.bl1{
+    background-color: burlywood;
+}
+.bl2{
+    background-color: crimson;
+}
+.bl3{
+    background-color: aqua;
+}
+
+/* -------------------Задание 2--------------------- */
+@keyframes progressbar{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+.progressbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: red;
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: progressbar 1s linear;
+    animation-timeline: scroll(root block);
+    transition: transform 0.2s ease;
+}
+
+/* -------------------Задание 3--------------------- */
+@keyframes grow{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+
+.carousel{
+    /* display: flex; */
+    overflow-x: scroll;
+    white-space: nowrap;
+    /* align-items: center;
+    height: 300px; */
+}
+.imgCarousel{
+    width: 200px;
+    height: 200px;
+    border: 5px blue solid;
+    border-radius: 10px;
+    margin: 20px;
+
+    animation: grow ease-in-out;
+    animation-timeline: view(inline 50% 30%);
+}
+.horMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
