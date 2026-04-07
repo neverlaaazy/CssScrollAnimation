@@ -34,7 +34,6 @@ main{
 }
 header,footer{
     background-color: aquamarine;
-    min-height: 50px;
 }
 
 /* -------------------Задание 1--------------------- */
@@ -106,4 +105,155 @@ header,footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* -------------------Задание 4--------------------- */
+@keyframes appearance{
+    from{
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes bounceInRight{
+    from{
+        transform: translateX(400%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes box2{
+    0%{
+        transform: translateY(400%) rotate(360deg) scale(0.6);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(100%) rotate(180deg) scale(1);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateY(0) rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.box-1, .box-2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: white;
+}
+.box-1{
+    background-color: aquamarine;
+    animation: appearance ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 100% contain 50%;
+}
+.box-2{
+    background-color: palevioletred;
+    
+    animation: box2 ease;
+    animation-timeline: view();
+    animation-range: entry 100% contain 50%;
+}
+.header{
+    height: 100%;
+}
+.list-item{
+    margin: 20px;
+    animation: bounceInRight;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+
+/* -------------------Задание 5-6--------------------- */
+@keyframes bright{
+    from{
+        color: black;
+        opacity: 0;
+    }
+    to{
+        color: red;
+        opacity: 1;
+    }
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+        position: fixed;
+    }
+    20%,100%{
+        opacity: 1;
+        position: fixed;
+    }
+}
+
+.fixedHeader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    color: white;
+    background-color: #2d2d44;
+    height: 100px;
+    animation-name:fade;
+    animation-duration: auto;
+    animation-timeline: scroll(root block);
+    animation-range: 100vh 100%;
+}
+.conA{
+    color: white;
+}
+.main5{
+    min-height: 500vh;
+    display: grid;
+    background-color: #f8f8f8;
+    margin-top: 100px;
+    grid-template-rows: repeat(3,1fr);
+}
+.section{
+    view-timeline-name: --section-timeline;
+    view-timeline-axis:y;
+}
+.section h2{
+    animation: bright;
+    animation-timeline: --section-timeline;
+    animation-range:entry 0% cover 50%;
+}
+
+
+/* -------------------Задание 7--------------------- */
+::-webkit-scrollbar {
+  width: 20px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d15ff; 
+  border-radius: 5px;
+  border: 2px solid #d2ff08;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0000; 
 }
